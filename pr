@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Check if PR number is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 <pull_request_number>"
+  exit 1
+fi
+
+# Variables
+PR_NUMBER=$1
+BASE_REPO="mertJF/tailblocks"
+FORK_REPO="manamelacedric/tailblocks"
+NEW_BRANCH="copy-pr-${PR_NUMBER}"
+
+# Add base repository remote
+git remote add upstream https://github.com/${BASE_REPO}.git
+
+# Fetch the pull request branch
+git fetch upstream pull/${PR_NUMBER}/head:${NEW_BRANCH}
+
+# Checkout the new branch
+git checkout ${NEW_BRANCH}
+
+# Push the branch to your fork
+git push origin ${NEW_BRANCH}
+
+echo "Pull request ${PR_NUMBER} from ${BASE_REPO} has been copied to your fork ${FORK_REPO} as branch ${NEW_BRANCH}."
