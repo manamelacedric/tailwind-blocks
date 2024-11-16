@@ -30,6 +30,9 @@ import EcommerceA from './ecommerce/a';
 import EcommerceB from './ecommerce/b';
 import EcommerceC from './ecommerce/c';
 
+import FAQA from './faq/a';
+import FAQB from './faq/b';
+
 import FeatureA from './feature/a';
 import FeatureB from './feature/b';
 import FeatureC from './feature/c';
@@ -124,6 +127,10 @@ export default function getIcons() {
       EcommerceA: <EcommerceA />,
       EcommerceB: <EcommerceB />,
       EcommerceC: <EcommerceC />
+    },
+    FAQ: {
+      FAQA: <FAQA />,
+      FAQB: <FAQB />
     },
     Feature: {
       FeatureA: <FeatureA />,
